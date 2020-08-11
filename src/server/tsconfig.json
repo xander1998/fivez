@@ -12,7 +12,9 @@
     "allowJs": true,
     "lib": ["es2017"],
     "types": ["@citizenfx/server", "@citizenfx/client", "@types/node"],
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "esModuleInterop": true  
   },
   "include": ["./**/*"],
   "exclude": [],

@@ -11,7 +11,7 @@ const server = {
         test: /\.tsx?$/,
         use: ['ts-loader', 'eslint-loader'],
         exclude: /node_modules/,
-      },
+      }
     ],
   },
   plugins: [
@@ -29,7 +29,8 @@ const server = {
         /typeorm-aurora-data-api-driver/,
         /pg-query-stream/,
         /pg-native/,
-        /pg/
+        /pg/,
+        /app-root-path/
       ]
     })
   ],
