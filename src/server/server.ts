@@ -1,17 +1,8 @@
 import "reflect-metadata"
-import { GetConnection } from "./database";
-import { User } from "./database/entity/user";
 
-GetConnection().then(async connection => {
+// Managers
+import { PlayerManager } from "./managers/players";
+import { ConnectionManager } from "./managers/connections";
 
-  const user = new User();
-  user.name = "Xander1998";
-  user.license = "license:new";
-
-  const userRepo = connection.getRepository(User);
-
-  await userRepo.save(user).then(() => {
-    console.log("INSERTING USER")
-  }).catch((error) => console.log(`ERROR: ${error}`));
-
-}).catch(error => console.log(`ERROR: ${error}`));
+const playerManager = new PlayerManager();
+new ConnectionManager(playerManager);

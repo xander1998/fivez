@@ -2,6 +2,10 @@ import { createConnection, Connection } from "typeorm";
 
 // Entities
 import { User } from "./database/entity/user";
+import { Character } from "./database/entity/character";
+
+// Subscribers
+import { UserSubscriber } from "./database/subscriber/users";
 
 export function GetConnection() : Promise<Connection> {
   return createConnection({
@@ -14,9 +18,12 @@ export function GetConnection() : Promise<Connection> {
     "synchronize": true,
     "logging": false,
     "entities": [
-      User
+      User,
+      Character
     ],
     "migrations": [],
-    "subscribers": []
+    "subscribers": [
+      UserSubscriber
+    ]
   })
 }
